@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: spring-boot-gateway
+  cloud:    gateway:      routes:
+      #id      - id: ribbon-api
+      #要发送的url
+        uri: http://127.0.0.1:8765
+      #配置要过滤的path，所有ribbon-api 都将路由到http://127.0.0.1:8765
+        predicates:        - Path=/ribbon-api/**
+      #配置过滤规则，1位全部过滤
+        filters:        - StripPrefix=1
+      - id: feign-api
+        uri: http://127.0.0.1:8763
+        predicates:
+        - Path=/feign-api/**
+        filters:
+        - StripPrefix=1
+server:
+  port: 8766
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ 

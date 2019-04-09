@@ -1,0 +1,37 @@
+spring:
+###数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/spring?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&allowPublicKeyRetrieval=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    username: hyn
+    password: hyn1234
+###JPA配置
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    generate-ddl: true
+    database: mysql 
+  application:
+    name: My-Spring-First
+  redis:
+    database: 0
+    host: 114.116.20.12
+    port: 6379
+    password: 
+    jedis:
+      pool:
+        max-active: 10
+        max-idle: 8
+        max-wait: 1000
+        min-idle: 0
+  profiles:
+    active:
+    - dev
+server:
+  port: 8764
+  servlet:
+    context-path: /api/

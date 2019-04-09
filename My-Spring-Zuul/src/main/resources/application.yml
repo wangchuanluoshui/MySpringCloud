@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: spring-boot-zuul
+server:
+  port: 8767
+# tag::configuration-eureka[]
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #<2>
+  endpoint:
+    health:
+      show-details: ALWAYS
+# end::configuration-eureka[]
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ 
+zuul:
+  routes:
+    ribbon-api: 
+      #可以指定 URL，但是需要知道每个服务的url，很是不方便
+#      url: http://localhost:8765/
+      #sericeId 指定了Eureka中注册的服务
+      serviceId: spring-boot-ribbon
+      #过滤以ribbon-api 开头的所有的请求给 spring-boot-ribbon 服务
+      path: /ribbon-api/**
+    feign-api: 
+      path: /feign-api/**
+      serviceId: spring-boot-feign
+#      url: http://localhost:8763/
+    
+      

@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: spring-boot-ribbon
+server:
+  port: 8765
+# tag::configuration-eureka[]
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #<2>
+  endpoint:
+    health:
+      show-details: ALWAYS
+# end::configuration-eureka[]
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ 

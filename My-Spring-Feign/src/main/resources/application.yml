@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: spring-boot-feign
+server:
+  port: 8763
+# tag::configuration-eureka[]
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #<2>
+  endpoint:
+    health:
+      show-details: ALWAYS
+# end::configuration-eureka[]
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ 
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    ##全局方法使用default
+    FeignService#getName():
+      execution:
+        isolation:
+          thread: 
+          ##超时时间
+            timeoutInMilliseconds: 4000
+      circuitBreaker:
+      ##每秒3次请求
+        requestVolumeThreshold: 3

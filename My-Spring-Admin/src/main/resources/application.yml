@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: spring-boot-admin
+server:
+  port: 8762
+
+# tag::configuration-eureka[]
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #<2>
+  endpoint:
+    health:
+      show-details: ALWAYS
+# end::configuration-eureka[]
+---
+spring:
+  profiles:
+   active:
+    - insecure
+---
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/    
