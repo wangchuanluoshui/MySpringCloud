@@ -33,7 +33,7 @@ public class MysqlGenerator {
 
 	    public static void main(String[] args) {
 	        // 自定义需要填充的字段
-	        List<TableFill> tableFillList = new ArrayList<>();
+	        List<TableFill> tableFillList = new ArrayList<TableFill>();
 	        tableFillList.add(new TableFill("ASDD_SS", FieldFill.INSERT_UPDATE));
 	        // 代码生成器
 	        AutoGenerator mpg = new AutoGenerator().setGlobalConfig(
@@ -123,7 +123,7 @@ public class MysqlGenerator {
 	                new InjectionConfig() {
 	                    @Override
 	                    public void initMap() {
-	                        Map<String, Object> map = new HashMap<>();
+	                        Map<String, Object> map = new HashMap<String, Object>();
 	                        map.put("abc", this.getConfig().getGlobalConfig().getAuthor() + "-mp");
 	                        this.setMap(map);
 	                    }

@@ -2,9 +2,9 @@ spring:
 ###数据库配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/spring?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&allowPublicKeyRetrieval=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
-    username: hyn
-    password: hyn1234
+    url: jdbc:mysql://192.168.140.209:43306/spring?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&allowPublicKeyRetrieval=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    username: summit
+    password: summit
 ###JPA配置
   jpa:
     properties:
@@ -34,4 +34,4 @@ spring:
 server:
   port: 8764
   servlet:
-    context-path: /api/
+    context-path: /spring-api/
