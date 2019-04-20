@@ -11,6 +11,8 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 import com.alibaba.fastjson.JSONObject;
+import com.hyn.spring.utils.ICodes;
+import com.hyn.spring.utils.IResultUtil;
 /**
  * 
  * @Title:：LoginFailHandler.java 
@@ -30,7 +32,7 @@ public class LoginFailHandler implements AuthenticationFailureHandler{
 		response.setContentType("application/json;charset=utf-8");
 		//返回JSON字符串
 		PrintWriter writer =response.getWriter();
-		writer.write(JSONObject.toJSONString("fail"));
+		writer.write(JSONObject.toJSONString(IResultUtil.responseMsg(ICodes.CODE_9984)));
 	}
 
 	

@@ -23,6 +23,8 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 
 import com.alibaba.fastjson.JSONObject;
 import com.hyn.spring.entity.SysUser;
+import com.hyn.spring.utils.ICodes;
+import com.hyn.spring.utils.IResultUtil;
 
 /**
  * 
@@ -64,9 +66,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 		response.setContentType("application/json;charset=utf-8");
 		// 返回JSON字符串
 		PrintWriter writer = response.getWriter();
-		Map<String,String> result=new HashMap<>(1);
-		result.put("status", "success");
-		writer.write(JSONObject.toJSONString(result));
+		writer.write(JSONObject.toJSONString(IResultUtil.responseMsg(ICodes.CODE_0000)));
 	}
 
 }

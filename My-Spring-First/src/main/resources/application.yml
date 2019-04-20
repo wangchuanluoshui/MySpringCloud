@@ -34,4 +34,11 @@ spring:
 server:
   port: 8764
   servlet:
-    context-path: /spring-api/
+    context-path: /spring-api
+file:
+  path: E:/eclipse2018/SummitHPS/file/
+###文件上传路径
+localhost:
+  uploadfile:
+    url: http://192.168.141.196:${server.port}${server.servlet.context-path}/file/?filePath=
+

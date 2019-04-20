@@ -17,6 +17,7 @@ import com.hyn.spring.utils.ICodes;
 import com.hyn.spring.utils.IPageRequest;
 import com.hyn.spring.utils.IResult;
 import com.hyn.spring.utils.IResultUtil;
+import com.hyn.spring.vo.CurrentUserVO;
 import com.hyn.spring.vo.SysUserVO;
 
 import io.swagger.annotations.Api;
@@ -107,4 +108,12 @@ public class SysUserController {
 		return IResultUtil.responseMsg(ICodes.CODE_0000, sysUsers);
 	}
 
+	
+	@ApiOperation(value = "查询当前用户")
+	@RequestMapping(value = "currentUser/", method = RequestMethod.GET)
+	@ResponseBody
+	public IResult<CurrentUserVO> currentUser() {
+		CurrentUserVO currentUserVO = iSysUserService.currentUser();
+		return IResultUtil.responseMsg(ICodes.CODE_0000,currentUserVO);
+	}
 }

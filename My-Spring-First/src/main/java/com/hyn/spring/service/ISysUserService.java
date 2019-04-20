@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import com.hyn.spring.vo.CurrentUserVO;
 import com.hyn.spring.vo.SysUserVO;
 
 public interface ISysUserService {
@@ -51,5 +52,11 @@ public interface ISysUserService {
 	
 	
 	List<SysUserVO> listSysUser(String userName);
+
+	/**
+	 * 查询当前用户
+	 * @return
+	 */
+	CurrentUserVO currentUser();
 
 }

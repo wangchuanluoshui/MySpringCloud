@@ -116,4 +116,12 @@ public class SysUser implements Serializable {
 	@JoinColumn(name="org_id")
 	SysOrganization sysOrganization;
 	
+	@Column(columnDefinition = "varchar(100) comment '头像'" )
+	String portrait;
+	
+	@Column(columnDefinition = "varchar(100) comment '描述'" )
+	String description;
+	
+	@Column(columnDefinition = "varchar(100) comment '常住地址'" )
+	String address;
 }

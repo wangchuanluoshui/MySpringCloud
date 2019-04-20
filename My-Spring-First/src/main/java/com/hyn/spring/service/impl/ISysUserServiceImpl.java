@@ -34,8 +34,10 @@ import com.hyn.spring.entity.SysUser;
 import com.hyn.spring.repository.ISysUserDaoImpl;
 import com.hyn.spring.repository.ISysUserRepository;
 import com.hyn.spring.service.ISysUserService;
+import com.hyn.spring.utils.BeanUtils;
 import com.hyn.spring.utils.ICodes;
 import com.hyn.spring.utils.IPageResponse;
+import com.hyn.spring.vo.CurrentUserVO;
 import com.hyn.spring.vo.SysUserVO;
 
 @Service
@@ -240,6 +242,20 @@ public class ISysUserServiceImpl implements ISysUserService {
 
 		}
 		return null;
+	}
+
+	@Override
+	public CurrentUserVO currentUser() {
+		CurrentUserVO currentUserVO=new CurrentUserVO();
+		SysUser sysUser= iSysUserRepository.findByLoginName("heyanan");
+		try {
+			currentUserVO=BeanUtils.oneCopy(CurrentUserVO.class, sysUser);
+			currentUserVO.setOrgName(sysUser.getSysOrganization().getName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return currentUserVO;
 	}
 
 }
