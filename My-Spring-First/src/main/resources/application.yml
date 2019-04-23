@@ -17,17 +17,6 @@ spring:
     database: mysql 
   application:
     name: My-Spring-First
-  redis:
-    database: 0
-    host: 114.116.20.12
-    port: 6379
-    password: 
-    jedis:
-      pool:
-        max-active: 10
-        max-idle: 8
-        max-wait: 1000
-        min-idle: 0
   profiles:
     active:
     - dev
