@@ -53,7 +53,14 @@ public interface ISysUserRepository extends JpaRepository<SysUser, String>,JpaSp
 	 * @return
 	 */
 	Optional<List<SysUser>> findByUserNameOrLoginName(String userName,String loginName);
-	
+
+	/**
+	 * 根据用户名模糊查询
+	 * @param userName
+	 * @return
+	 */
+	Optional<List<SysUser>> findByUserName(String userName);
+
 	/**
 	 * 分页查询
 	 * @param userName
@@ -68,7 +75,7 @@ public interface ISysUserRepository extends JpaRepository<SysUser, String>,JpaSp
 	 * @return
 	 */
 	@Query(value = "select * from sys_user where username = ?1", nativeQuery = true)
-	Optional<List<SysUser>> findByUserName(String userName);
+	Optional<List<SysUser>> findByUserNameLike(String userName);
 
 	
 	/**

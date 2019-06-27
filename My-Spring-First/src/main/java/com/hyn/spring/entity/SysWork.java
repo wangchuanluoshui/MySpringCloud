@@ -62,4 +62,7 @@ public class SysWork implements Serializable {
 	
 	@Column(columnDefinition = "varchar(100) comment '工作类型（会议，开发，部署，讨论，其他）' ")
 	String type;
+	
+	@Column(columnDefinition = "integer comment '点赞数' ")
+	Integer like; 
 }

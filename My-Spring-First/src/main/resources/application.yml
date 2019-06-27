@@ -2,9 +2,9 @@ spring:
 ###数据库配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.140.209:43306/spring?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&allowPublicKeyRetrieval=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
-    username: summit
-    password: summit
+    url: jdbc:mysql://127.0.0.1:3306/spring?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&allowPublicKeyRetrieval=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    username: hyn
+    password: hyn1234
 ###JPA配置
   jpa:
     properties:
@@ -17,17 +17,6 @@ spring:
     database: mysql 
   application:
     name: My-Spring-First
-  redis:
-    database: 0
-    host: 114.116.20.12
-    port: 6379
-    password: 
-    jedis:
-      pool:
-        max-active: 10
-        max-idle: 8
-        max-wait: 1000
-        min-idle: 0
   profiles:
     active:
     - dev
@@ -40,5 +29,5 @@ file:
 ###文件上传路径
 localhost:
   uploadfile:
-    url: http://192.168.141.196:${server.port}${server.servlet.context-path}/file/?filePath=
+    url: http://127.0.0.1:${server.port}${server.servlet.context-path}/file/?filePath=
 
