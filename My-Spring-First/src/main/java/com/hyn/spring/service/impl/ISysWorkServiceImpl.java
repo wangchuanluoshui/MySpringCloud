@@ -1,6 +1,7 @@
 package com.hyn.spring.service.impl;
 
 import java.util.Date;
+<<<<<<< HEAD
 import java.util.List;
 import java.util.Optional;
 
@@ -9,7 +10,9 @@ import javax.persistence.criteria.CriteriaBuilder.In;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,7 +25,9 @@ import com.hyn.spring.entity.SysWork;
 import com.hyn.spring.repository.ISysUserRepository;
 import com.hyn.spring.repository.ISysWorkRepository;
 import com.hyn.spring.service.ISysWorkService;
+import com.hyn.spring.utils.BeanUtils;
 import com.hyn.spring.utils.ICodes;
+import com.hyn.spring.utils.IPageResponse;
 import com.hyn.spring.utils.TimeUtil;
 import com.hyn.spring.vo.SysWorkFindVO;
 import com.hyn.spring.vo.SysWorkVO;
@@ -35,8 +40,7 @@ public class ISysWorkServiceImpl implements ISysWorkService {
 
 	@Autowired
 	ISysUserRepository iSysUserRepository;
-
-	@Override
+		@Override
 	public String save(SysUser sysUser, SysWorkVO sysWorkVO) {
 
 		SysWork sysWork = new SysWork();

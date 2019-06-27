@@ -181,12 +181,9 @@ public class TimeUtil {
 	}
 
 	/**
-	 * 给date加days天 <br/>
-	 * 创建者：马飞虎 <br/>
-	 * 创建时间：2011-4-20 上午11:54:23 <br/>
 	 * 
 	 * @param date
-	 * @param day
+	 * @param days
 	 * @return
 	 */
 	public static Date addDay(Date date, int days) {

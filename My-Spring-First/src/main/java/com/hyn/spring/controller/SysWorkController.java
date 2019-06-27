@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.hyn.spring.entity.SysUser;
+import com.hyn.spring.entity.SysWork;
 import com.hyn.spring.service.ISysWorkService;
 import com.hyn.spring.utils.ICodes;
 import com.hyn.spring.utils.IPageRequest;
@@ -45,6 +46,7 @@ public class SysWorkController {
 		return IResultUtil.responseMsg(resultCode);
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * 
 	 * 查询用户 分页查询
@@ -58,14 +60,26 @@ public class SysWorkController {
 			@ApiParam(value = "项目名称", required = false) @RequestParam(name = "projectName", required = false) String projectName,
 			@ApiParam(value = "工作类型", required = false) @RequestParam(name = "type", required = false) String type,
 
+	@ApiOperation(value = "查询工作列表")
+	@RequestMapping(value = "/page", method = RequestMethod.GET)
+	@ResponseBody
+	public IResult<Page<SysWorkFindVO>> findByCondition(
+			@ApiParam(value = "项目名", required = false) @RequestParam(name = "projectName", required = false) String projectName,
+			@ApiParam(value = "类型", required = false) @RequestParam(name = "type", required = false) String type,
 			@ApiParam(value = "排序方式", required = false) @RequestParam(name = "sort", required = false) String sort,
 			@ApiParam(value = "排序字段", required = false) @RequestParam(name = "sidx", required = false) String sidx,
 			@ApiParam(value = "页码", required = false) @RequestParam(name = "page", required = false) Integer page,
 			@ApiParam(value = "页大小", required = false) @RequestParam(name = "size", required = false) Integer size) {
-		IPageRequest iPageRequest = new IPageRequest(sort, sidx, page, size);
-		Page<SysWorkFindVO> resultPage = iSysWorkService.findByCondition(userName, projectName, type,
-				iPageRequest.getRequestPage());
-		return IResultUtil.responseMsg(ICodes.CODE_0000, resultPage);
-	}
+		if(page==null)
+		{
+			page=0;
+		}
+		if(size==null)
+		{
+			size=15;
+		}
+		IPageRequest iPageRequest= new IPageRequest(sort, sidx, page, size);
+		
+		return IResultUtil.responseMsg(ICodes.CODE_0000,iSysWorkService.findByCondition(projectName, type, iPageRequest.getRequestPage()));	}
 	
 }

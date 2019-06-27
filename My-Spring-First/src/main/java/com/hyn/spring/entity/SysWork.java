@@ -1,6 +1,7 @@
 package com.hyn.spring.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -65,4 +66,7 @@ public class SysWork implements Serializable {
 	
 	@Column(columnDefinition = "integer comment '点赞数' ")
 	Integer like; 
+
+	@Column(columnDefinition = "numeric(2,1)  COMMENT '评分' ")
+	BigDecimal grade;
 }
